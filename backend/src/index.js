@@ -1,9 +1,11 @@
 import express from 'express';
+import cors from 'cors';
 import { Pool } from 'pg';
 import { config } from 'dotenv';
 config();
 
 const app = express();
+app.use(cors()); // ✅ Enable CORS for all routes
 const port = process.env.PORT || 4000;
 
 const pool = new Pool({

@@ -34,6 +34,24 @@
   margin: 0 auto;
 }
 
+nav {
+  display: flex;
+  justify-content: center; /* Centers the nav */
+  gap: 1.5rem; /* Even spacing between links */
+  padding: 1rem 0;
+  background-color: #f8f8f8;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
