@@ -1,0 +1,1 @@
+console.log("Frontend loaded. Use React here in the future.");
