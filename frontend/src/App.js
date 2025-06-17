@@ -1,23 +1,28 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import { useEffect, useState } from 'react';
-import { fetchHealth } from './api';
+
+import Navigation from './Navigation';
+import HomePage from './HomePage';
+import CarsPage from './CarsPage';
+import EventsPage from './EventsPage';
+import SponsorsPage from './SponsorsPage';
+import ServicesPage from './ServicesPage';
 
 function App() {
-  const [status, setStatus] = useState('Loading...');
-
-  useEffect(() => {
-    fetchHealth()
-      .then(data => setStatus(data.message))
-      .catch(() => setStatus('Error contacting API'));
-  }, []);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Howard Automotive</h1>
-        <p>API Status: {status}</p>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/cars" element={<CarsPage />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/sponsors" element={<SponsorsPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
